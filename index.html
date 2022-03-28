@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>音乐盒</title>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+	<div id="wrapper">
+		<header class="block block-top clearfix">
+			<p class="title">音乐盒</p>
+			<p>(～￣▽￣)～ </p>
+		</header>
+		<div id="list" class="block block-normal-last">
+		</div>
+		<div class="player block block-fixed clearfix">
+			<audio src="" id="audioplayer"></audio>
+			<div class="music-cover float">
+				<img id="music_cover_img" src="./img/default-cover.jpg" alt="cover">
+			</div>
+			<div class="music-infobox float">
+				<p id="music_title" class="text text-title">music_title</p>
+				<p id="music_singer" class="text text-singer">music_singer</p>
+			</div>
+			<div class="music-ctrlbox float">
+				<i onclick="musicBack()" class="icon-back button float"></i>
+				<i onclick="musicCtrl()" class="icon-play button float" id="ctrl_button"></i>
+				<i onclick="musicNext()" class="icon-go button float"></i>
+			</div>
+			<div id="progressbar" class="progressbar float">
+				<div id="progress" class="progress" style="width: 0%;"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var music_list = [{
+			audio_file: '泠鸢yousa - 我的悲伤是水做的.mp3',
+			cover_file: '泠鸢yousa - 我的悲伤是水做的.jpg',
+			title: '我的悲伤是水做的',
+			singer: '泠鸢yousa'
+		}, {
+			audio_file: 'YOASOBI - 群青.mp3',
+			cover_file: 'YOASOBI - 群青.jpg',
+			title: '群青',
+			singer: 'YOASOBI'
+		}, {
+			audio_file: '陈奕迅 - 孤勇者.mp3',
+			cover_file: '陈奕迅 - 孤勇者.jpg',
+			title: '孤勇者',
+			singer: '陈奕迅'
+		}, {
+			audio_file: '泠鸢yousa - 我的悲伤是水做的.mp3',
+			cover_file: '泠鸢yousa - 我的悲伤是水做的.jpg',
+			title: '我的悲伤是水做的',
+			singer: '泠鸢yousa'
+		}, {
+			audio_file: 'YOASOBI - 群青.mp3',
+			cover_file: 'YOASOBI - 群青.jpg',
+			title: '群青',
+			singer: 'YOASOBI'
+		}, {
+			audio_file: '陈奕迅 - 孤勇者.mp3',
+			cover_file: '陈奕迅 - 孤勇者.jpg',
+			title: '孤勇者',
+			singer: '陈奕迅'
+		}, {
+			audio_file: '泠鸢yousa - 我的悲伤是水做的.mp3',
+			cover_file: '泠鸢yousa - 我的悲伤是水做的.jpg',
+			title: '我的悲伤是水做的',
+			singer: '泠鸢yousa'
+		}, {
+			audio_file: 'YOASOBI - 群青.mp3',
+			cover_file: 'YOASOBI - 群青.jpg',
+			title: '群青',
+			singer: 'YOASOBI'
+		}, {
+			audio_file: '陈奕迅 - 孤勇者.mp3',
+			cover_file: '陈奕迅 - 孤勇者.jpg',
+			title: '孤勇者',
+			singer: '陈奕迅'
+		}, {
+			audio_file: '泠鸢yousa - 我的悲伤是水做的.mp3',
+			cover_file: '泠鸢yousa - 我的悲伤是水做的.jpg',
+			title: '我的悲伤是水做的',
+			singer: '泠鸢yousa'
+		}, {
+			audio_file: 'YOASOBI - 群青.mp3',
+			cover_file: 'YOASOBI - 群青.jpg',
+			title: '群青',
+			singer: 'YOASOBI'
+		}, {
+			audio_file: '陈奕迅 - 孤勇者.mp3',
+			cover_file: '陈奕迅 - 孤勇者.jpg',
+			title: '孤勇者',
+			singer: '陈奕迅'
+		}, {
+			audio_file: '泠鸢yousa - 我的悲伤是水做的.mp3',
+			cover_file: '泠鸢yousa - 我的悲伤是水做的.jpg',
+			title: '我的悲伤是水做的',
+			singer: '泠鸢yousa'
+		}, {
+			audio_file: 'YOASOBI - 群青.mp3',
+			cover_file: 'YOASOBI - 群青.jpg',
+			title: '群青',
+			singer: 'YOASOBI'
+		}, {
+			audio_file: '陈奕迅 - 孤勇者.mp3',
+			cover_file: '陈奕迅 - 孤勇者.jpg',
+			title: '孤勇者',
+			singer: '陈奕迅'
+		}, {
+			audio_file: '泠鸢yousa - 我的悲伤是水做的.mp3',
+			cover_file: '泠鸢yousa - 我的悲伤是水做的.jpg',
+			title: '我的悲伤是水做的',
+			singer: '泠鸢yousa'
+		}, {
+			audio_file: 'YOASOBI - 群青.mp3',
+			cover_file: 'YOASOBI - 群青.jpg',
+			title: '群青',
+			singer: 'YOASOBI'
+		}, {
+			audio_file: '陈奕迅 - 孤勇者.mp3',
+			cover_file: '陈奕迅 - 孤勇者.jpg',
+			title: '孤勇者',
+			singer: '陈奕迅'
+		}, {
+			audio_file: '泠鸢yousa - 我的悲伤是水做的.mp3',
+			cover_file: '泠鸢yousa - 我的悲伤是水做的.jpg',
+			title: '我的悲伤是水做的',
+			singer: '泠鸢yousa'
+		}, {
+			audio_file: 'YOASOBI - 群青.mp3',
+			cover_file: 'YOASOBI - 群青.jpg',
+			title: '群青',
+			singer: 'YOASOBI'
+		}, {
+			audio_file: '陈奕迅 - 孤勇者.mp3',
+			cover_file: '陈奕迅 - 孤勇者.jpg',
+			title: '孤勇者',
+			singer: '陈奕迅'
+		}]
+	</script>
+	<script src="./js/player.js"></script>
+</body>
+
+</html>
