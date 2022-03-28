@@ -201,6 +201,10 @@ header p.title {
     #wrapper {
         max-width: 1000px;
     }
+
+    .player {
+        max-width: 940px;
+    }
 }
 
 @media screen and (max-width: 1700px) {
