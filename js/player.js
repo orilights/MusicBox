@@ -1,8 +1,3 @@
-/*
- * @Author: OriLight
- * @Date: 2022-03-27 19:39:20
- * @LastEditTime: 2022-03-28 14:53:32
- */
 var music_player = document.getElementById('audioplayer');
 var music_cover = document.getElementById('music_cover_img')
 var music_title = document.getElementById('music_title');
@@ -15,15 +10,15 @@ var progress_adjust = false;
 
 // 数据加载
 document.addEventListener('DOMContentLoaded', function () {
-    music_player.src = './audio/' + music_list[music_index].audio_file;
-    music_cover.src = './audio/' + music_list[music_index].cover_file;
+    music_player.src = music_fileprefix + music_list[music_index].audio_file;
+    music_cover.src = music_fileprefix + music_list[music_index].cover_file;
     music_title.textContent = music_list[music_index].title;
     music_singer.textContent = music_list[music_index].singer;
     for (m in music_list) {
         let newChild = document.createElement('div')
         newChild.className = 'list-item';
         if (m == 0) newChild.classList.add('select');
-        newChild.textContent = music_list[m].title + ' - ' + music_list[m].singer;
+        newChild.textContent = list_showsinger ? music_list[m].title + ' - ' + music_list[m].singer : music_list[m].title;
         newChild.setAttribute('data-index', m)
         newChild.onclick = function (event) {
             if (event.target.getAttribute('data-index') != music_index) {
@@ -116,8 +111,8 @@ function refresh_info() {
     list_pre.classList.remove('select');
     document.querySelector("div[data-index='" + music_index + "']").classList.add('select');
     music_player.pause();
-    music_player.src = './audio/' + music_list[music_index].audio_file;
-    music_cover.src = './audio/' + music_list[music_index].cover_file;
+    music_player.src = music_fileprefix + music_list[music_index].audio_file;
+    music_cover.src = music_fileprefix + music_list[music_index].cover_file;
     music_title.textContent = music_list[music_index].title;
     music_singer.textContent = music_list[music_index].singer;
     music_player.play();
