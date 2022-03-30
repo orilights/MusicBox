@@ -56,11 +56,6 @@ var music_list = [{
     title: 'Prover',
     singer: 'milet'
 }, {
-    audio_file: 'milet - You & I.mp3',
-    cover_file: 'milet - You & I.jpg',
-    title: 'You & I',
-    singer: 'milet'
-}, {
     audio_file: 'RAM WIRE - 僕らの手には何もないけど、.mp3',
     cover_file: 'RAM WIRE - 僕らの手には何もないけど、.jpg',
     title: '僕らの手には何もないけど、',
