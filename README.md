@@ -2,7 +2,7 @@
 
 练习作品，简单的音乐盒
 
-[在线预览](https://music.orilight.top/)
+[在线预览](https://web.orilight.top/MusicBox)
 
 **TODO**
 
